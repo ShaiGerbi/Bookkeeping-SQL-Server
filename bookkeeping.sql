@@ -67,3 +67,13 @@ VALUES(10, '1976-01-01'),
 	  (16, '2009-07-01'),
 	  (17, '2015-09-01'),
 	  (18, '2025-01-01');
+
+
+/*
+טבלת מטבעות
+*/
+CREATE TABLE Currencies(
+    CurrencyId INT PRIMARY KEY IDENTITY,
+	CurrencyName NVARCHAR(32) NOT NULL,
+	CurrencyCode NVARCHAR(3) NOT NULL UNIQUE
+);
