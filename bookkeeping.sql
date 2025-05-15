@@ -40,3 +40,8 @@ CREATE TABLE Bookkeepers(
     Email NVARCHAR(64) UNIQUE,
     Telephone NVARCHAR(16)
 );
+INSERT INTO Bookkeepers(BookkeeperName, Email, Telephone)
+VALUES('Coral', 'coral@company.com', '03-1234567'),
+      ('Emily', 'emily@company.com', '03-2345678'),
+      ('Alma', 'alma@company.com', '03-3456789'),
+      ('Shai', 'shai@company.com', '03-4567891');
