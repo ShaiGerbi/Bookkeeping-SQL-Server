@@ -77,3 +77,24 @@ CREATE TABLE Currencies(
 	CurrencyName NVARCHAR(32) NOT NULL,
 	CurrencyCode NVARCHAR(3) NOT NULL UNIQUE
 );
+INSERT INTO Currencies(CurrencyName, CurrencyCode)
+VALUES('אירו', 'EUR'),
+	  ('דולר אוסטרלי', 'AUD'),
+	  ('דולר אמריקאי', 'USD'),
+	  ('דולר הונג קונגי', 'HKD'),
+	  ('דולר טיוואני', 'TWD'),
+	  ('דולר ניו זילנדי', 'NZD'),
+	  ('דולר סינגפורי', 'SGD'),
+	  ('דולר קנדי', 'CAD'),
+	  ('יואן סיני', 'CNY'),
+	  ('ין יפני', 'JPY'),
+	  ('לירה טורקית', 'TRY'),
+	  ('פאונד שטרלינג', 'GBP'),
+	  ('פזו מקסיקני', 'MXN'),
+	  ('פרנק שווייצרי', 'CHF'),
+	  ('קוואצ''ה דרום אפריקאי', 'ZAR'),
+  	  ('רובל רוסי', 'RUB'),
+	  ('רופי הודי', 'INR'),
+	  ('רופי פקיסטני', 'PKR'),
+	  ('ריאל ברזילאי', 'BRL'),
+  	  ('שקל ישראלי', 'ILS');
