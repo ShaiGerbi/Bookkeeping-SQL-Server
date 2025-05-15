@@ -29,3 +29,14 @@ VALUES('מיידי', 0, 0, 0),
       ('15 ימים', 0, 15, 0),
       ('30 ימים', 0, 30, 0),
       ('60 ימים', 0, 60, 0);
+
+
+/*
+טבלת פרטי מנהלי חשבונות לקישור לרשומות שנוצרות
+*/
+CREATE TABLE Bookkeepers(
+    BookkeeperId INT PRIMARY KEY IDENTITY,
+    BookkeeperName NVARCHAR(32) NOT NULL,
+    Email NVARCHAR(64) UNIQUE,
+    Telephone NVARCHAR(16)
+);
