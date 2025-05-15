@@ -45,3 +45,13 @@ VALUES('Coral', 'coral@company.com', '03-1234567'),
       ('Emily', 'emily@company.com', '03-2345678'),
       ('Alma', 'alma@company.com', '03-3456789'),
       ('Shai', 'shai@company.com', '03-4567891');
+
+
+/*
+טבלת שיעור המע"מ לפי תאריך
+*/
+CREATE TABLE VatRates(
+	VatRateId INT PRIMARY KEY IDENTITY,
+	[Percent] DECIMAL(4, 2) NOT NULL,
+	FromDate DATE NOT NULL UNIQUE
+);
