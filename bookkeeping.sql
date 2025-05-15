@@ -17,3 +17,15 @@ CREATE TABLE PaymentTerms(
 	Days TINYINT,
 	NeedsEndOfMonth BIT
 );
+INSERT INTO PaymentTerms(PaymentTermName, Months, Days, NeedsEndOfMonth)
+VALUES('מיידי', 0, 0, 0),
+      ('שוטף+10', 0, 10, 1),
+      ('שוטף+15', 0, 15, 1),
+      ('שוטף+30', 1, 0, 1),
+      ('שוטף+60', 2, 0, 1),
+      ('שוטף+90', 3, 0, 1),
+      ('שוטף+120', 4, 0, 1),
+      ('10 ימים', 0, 10, 0),
+      ('15 ימים', 0, 15, 0),
+      ('30 ימים', 0, 30, 0),
+      ('60 ימים', 0, 60, 0);
