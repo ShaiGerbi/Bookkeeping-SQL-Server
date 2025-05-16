@@ -145,3 +145,35 @@ VALUES (2, 'אולמן את ספרין סוכנויות ', '5199383969', 'לקו
        (2, 'רוטשילד את אונגרישר ובניו', '5163035863', 'לקוחות חובות מסופקים', '3 Shimon Hatzadik', 'Tel Aviv', '8343575', 'Israel', 'info@rothschild-ungr', '08-3021886'),
        (4, 'שפירא סוכנויות', '5137084262', 'לקוחות חברה קשורה', '11 Meitav', 'Tel Aviv', '2756017', 'Israel', 'sales@shapira-agencies.co.il', '02-3089729'),
        (4, 'תאומים ובניו', '5148687595', 'לקוחות', '1 Hanassi Weizmann', 'Hadera', '7856513', 'Israel', 'contact@teomim-bneyu.co.il', '09-6860441');
+
+
+/*
+טבלת נתוני הכותרת של החשבוניות
+קיים קישור ללקוח, מנהל חשבונות אחראי, מטבע המסמך ותנאי תשלום
+*/
+CREATE TABLE InvoicesHeader(
+	InvoiceHeaderId INT PRIMARY KEY IDENTITY,
+
+	CustomerId INT NOT NULL
+	CONSTRAINT FK_InvoicesHeader_Customers
+	FOREIGN KEY (CustomerId)
+	REFERENCES Customers(CustomerId),
+
+	BookkeeperId INT NOT NULL
+	CONSTRAINT FK_InvoicesHeader_Bookkeepers
+	FOREIGN KEY (BookkeeperId)
+	REFERENCES Bookkeepers(BookkeeperId),
+
+	CurrencyId INT NOT NULL
+	CONSTRAINT FK_InvoicesHeader_Currencies
+	FOREIGN KEY (CurrencyId)
+	REFERENCES Currencies(CurrencyId),
+
+	PaymentTermId INT NOT NULL,
+	CONSTRAINT FK_InvoicesHeader_PaymentTerms 
+	FOREIGN KEY (PaymentTermId) 
+	REFERENCES PaymentTerms(PaymentTermId),
+
+	Description NVARCHAR(256),
+	ReferenceDate DATE NOT NULL DEFAULT GETDATE()
+);
