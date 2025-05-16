@@ -195,3 +195,26 @@ VALUES (6, 3, 6, 3, 'פיתוח אפליקציות למובייל', '2000-09-01'
        (20, 2, 20, 1, 'פתרונות טכנולוגיים בתחום ה-Big Data', '2009-12-28'),
        (10, 2, 4, 6, 'פיתוח מערכות אינטרנט של הדברים (IoT)', '2010-10-17'),
        (2, 3, 5, 7, 'שירותי סייבר ושחזור נתונים', '2010-11-22');
+
+
+/*
+טבלת שורות החשבונית
+*/
+CREATE TABLE InvoicesItems(
+	InvoiceItemId INT PRIMARY KEY IDENTITY,
+
+	InvoiceId INT NOT NULL,
+	CONSTRAINT FK_InvoicesItems_InvoicesHeader
+	FOREIGN KEY(InvoiceId)
+	REFERENCES InvoicesHeader(InvoiceHeaderId),
+
+	VatId INT, --לא בכל עסקה גובים מע"מ
+	CONSTRAINT FK_InvoicesItems_VatRates
+	FOREIGN KEY(VatId)
+	REFERENCES VatRates(VatRateId),
+
+	ItemDescription NVARCHAR(256) NOT NULL,
+	Quantity DECIMAL(10, 2) NOT NULL,
+	UnitPrice DECIMAL (10, 2) NOT NULL,
+	Total AS Quantity * UnitPrice
+);
