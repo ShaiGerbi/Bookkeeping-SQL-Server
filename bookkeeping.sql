@@ -98,3 +98,29 @@ VALUES('אירו', 'EUR'),
 	  ('רופי פקיסטני', 'PKR'),
 	  ('ריאל ברזילאי', 'BRL'),
   	  ('שקל ישראלי', 'ILS');
+
+
+/*
+טבלת לקוחות
+יש קישור למנהל חשבונות שאחראי על הלקוח
+*/
+CREATE TABLE Customers(
+	CustomerId INT PRIMARY KEY IDENTITY,
+
+	BookkeeperId INT,
+	CONSTRAINT FK_Customers_Bookkeepers 
+	FOREIGN KEY (BookkeeperId) 
+	REFERENCES Bookkeepers(BookkeeperId),
+
+	CustomerName NVARCHAR(64) NOT NULL,
+	VATNumber NVARCHAR(10) NOT NULL UNIQUE,
+	CustomerType NVARCHAR(32) NOT NULL DEFAULT 'לקוחות',
+
+	Street NVARCHAR(64) NOT NULL,
+	City NVARCHAR(64) NOT NULL,
+	ZipCode NVARCHAR(16),
+	Country NVARCHAR(32) NOT NULL,
+
+	Email NVARCHAR(64) NOT NULL,
+	Telephone NVARCHAR(16)
+);
